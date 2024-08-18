@@ -1,0 +1,591 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WeCart</title>
+    <link rel="icon" type="image/png" href="~/images/icons/favicon.png" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="~/css2/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="~/css2/slick.css" />
+    <link type="text/css" rel="stylesheet" href="~/css2/slick-theme.css" />
+    <link type="text/css" rel="stylesheet" href="~/css2/nouislider.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="~/css2/style.css" />
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+
+
+<style>
+    #header {
+        background-color: #222;
+    }
+
+    label {
+        color: black !important;
+    }
+
+    #top-header {
+        background-color: #222;
+    }
+
+    .main .categories .category img {
+        border-radius: 10px;
+    }
+
+    footer {
+        background-color: #222;
+        color: white;
+        padding-top: 80px;
+    }
+
+    .bg-dark {
+        background-color: #222 !important;
+    }
+
+    footer .payment-options img {
+        margin: 5px;
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+    }
+
+    footer .footer-links {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 20px;
+    }
+
+        footer .footer-links li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+            footer .footer-links li a {
+                text-decoration: none;
+                color: white;
+            }
+
+    .col-md-9 {
+        font-size: smaller;
+    }
+
+    #navbarNav {
+        font-size: smaller;
+    }
+
+    .cart {
+        width: 40px;
+        height: 40px;
+    }
+
+    .category-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .category-item img {
+            width: 60%;
+            height: 195px;
+            object-fit: cover;
+        }
+
+        .category-item p {
+            margin-top: 10px;
+            font-weight: 600
+        }
+
+    .mb-5 {
+        display: flex;
+        margin-top: -80px;
+        justify-content: center;
+    }
+
+    .links {
+        color: #383838;
+    }
+
+    .main-content {
+        margin-top: 150px;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+        background-color: #222;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 90%;
+        max-width: 400px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+        border-radius: 10px;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e5e5e5;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+        .modal-header h2 {
+            margin: 0;
+            color: #ccc;
+        }
+
+    label {
+        color: white;
+    }
+
+    a.float-right {
+        color: white;
+    }
+
+    .tab-content {
+        display: none;
+    }
+
+        .tab-content.active {
+            display: block;
+        }
+
+    .tab-buttons {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+    }
+
+        .tab-buttons button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            background: #f1f1f1;
+            cursor: pointer;
+        }
+
+            .tab-buttons button.active {
+                background: #D10024;
+                color: white;
+            }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+            .form-group input[type="checkbox"] {
+                width: auto;
+            }
+
+    .form-actions {
+        text-align: center;
+    }
+
+        .form-actions button {
+            background: #D10024;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+    body {
+        color: black;
+    }
+</style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <!-- TOP HEADER -->
+        <div id="top-header">
+            <div class="container">
+                <ul class="header-links pull-left">
+                    <li><a href="#"><i class="fa fa-phone"></i> +962772382250</a></li>
+                    <li><a href="#"><i class="fa fa-envelope-o"></i> Info@WeCart.com</a></li>
+                    <li><a href="#"><i class="fa fa-map-marker"></i> 21110 Irbid</a></li>
+                </ul>
+                <ul class="header-links pull-right">
+                    <li>
+                        @if (Session["UserName"] != null)
+                        {
+                            <a href="@Url.Action("Profile", "Account")" id="accountBtn">
+                                <i class="fa fa-user-o"></i> @Session["UserName"]
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Login", "Account")" id="accountBtn">
+                                <i class="fa fa-user-o"></i> My Account
+                            </a>
+                            <a href="@Url.Action("Register", "Account")" id="registerBtn" style="margin-left: 10px;">
+                                <i class="fa fa-user-plus"></i> Register
+                            </a>
+                        }
+                    </li>
+                    @if (Session["UserName"] != null)
+                    {
+                        <li><a href="@Url.Action("Logout", "Account")"><i class="fa fa-sign-out"></i> Logout</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <!-- /TOP HEADER -->
+        <!-- MAIN HEADER -->
+        <div id="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="header-logo">
+                            <a href="#" class="logo">
+                                <img src="~/img/logo.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="header-search">
+                            <form>
+                                <select class="input-select">
+                                    <option value="0">Gaming Pc</option>
+                                    <option value="1">Pc Builder</option>
+                                    <option value="2">Monitors</option>
+                                    <!-- Add other categories as necessary -->
+                                </select>
+                                <input class="input" placeholder="Search here">
+                                <button class="search-btn">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-3 clearfix">
+                        <div class="header-ctn">
+                            <div>
+                                <a href="~/wishlist.html">
+                                    <i class="fa fa-heart-o"></i>
+                                    <span>Your Wishlist</span>
+                                    <div class="qty">2</div>
+                                </a>
+                            </div>
+                            <!-- Cart -->
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span>Your Cart</span>
+                                    <div class="qty">0</div> <!-- This will be dynamically updated -->
+                                </a>
+                                <div class="cart-dropdown">
+                                    <div class="cart-list">
+                                        <!-- Cart items will be dynamically injected here by JavaScript -->
+                                    </div>
+                                    <div class="cart-summary">
+                                        <small><span class="item-count">0</span> Item(s) selected</small>
+                                        <h5>SUBTOTAL: $<span class="subtotal">0.00</span></h5>
+                                    </div>
+                                    <div class="cart-btns">
+                                        <a href="@Url.Action("Index", "Cart")">View Cart</a>
+                                        <a href="~/checkout.html">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Cart -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /MAIN HEADER -->
+    </header>
+    <!-- /HEADER -->
+    <!-- NAVIGATION -->
+    <nav id="navigation">
+        <div class="container">
+            <div id="responsive-nav">
+                <ul class="main-nav nav navbar-nav">
+                    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                    <li><a href="@Url.Action("Index", "Products")">Categories</a></li> <!-- Updated link -->
+                    <li><a href="~/wishlist.html">Wishlist</a></li>
+                    <li><a href="~/orders.html">Orders</a></li>
+                    <li><a href="~/contact.html">Contact</a></li>
+                    <li><a href="~/about.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- /NAVIGATION -->
+
+    @RenderBody()
+
+    <!-- NEWSLETTER -->
+    <div id="newsletter" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="newsletter">
+                        <p>Sign Up for the <strong>NEWSLETTER</strong></p>
+                        <form>
+                            <input class="input" type="email" placeholder="Enter Your Email">
+                            <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+                        </form>
+                        <ul class="newsletter-follow">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /NEWSLETTER -->
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col payment-options">
+                    <img src="~/images/wecart.png" alt="WeCart" class="img-fluid">
+                    <img src="~/images/apple_pay.png" alt="Apple Pay" class="img-fluid">
+                    <img src="~/images/zelle.png" alt="Zelle" class="img-fluid">
+                    <img src="~/images/cash.png" alt="Cash" class="img-fluid">
+                    <img src="~/images/mastercard.png" alt="MasterCard" class="img-fluid">
+                    <img src="~/images/visa.png" alt="Visa" class="img-fluid">
+                    <img src="~/images/PayPal.png" alt="PayPal" class="img-fluid">
+                </div>
+            </div>
+            <ul class="footer-links list-inline mt-3">
+                <li class="list-inline-item"><a href="~/index.html">Home Page</a></li>
+                <li class="list-inline-item"><a href="~/about.html">About Us</a></li>
+                <li class="list-inline-item"><a href="#">My Account</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                <li class="list-inline-item"><a href="#">Delivery</a></li>
+                <li class="list-inline-item"><a href="#">Refund</a></li>
+                <li class="list-inline-item"><a href="#">Terms & Conditions</a></li>
+            </ul>
+        </div>
+    </footer>
+    <!-- /FOOTER -->
+    <!-- jQuery Plugins -->
+    <script src="~/js2/jquery.min.js"></script>
+    <script src="~/js2/bootstrap.min.js"></script>
+    <script src="~/js2/slick.min.js"></script>
+    <script src="~/js2/nouislider.min.js"></script>
+    <script src="~/js2/jquery.zoom.min.js"></script>
+    <script src="~/js2/main.js"></script>
+
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
+    <!-- Custom JavaScript for Cart Operations -->
+    <script>
+        $(document).ready(function () {
+            updateCartSummary();
+
+            // Add to Cart function
+            window.addToCart = function (productId) {
+                $.ajax({
+                    url: '/Cart/AddToCart',
+                    method: 'POST',
+                    data: { productId: productId },
+                    success: function () {
+                        updateCartSummary();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Product Added To Cart',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    },
+                    error: function () {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'There was an error adding the item to the cart.',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                });
+            };
+
+            // Remove from Cart function
+            window.removeFromCart = function (productId) {
+                $.ajax({
+                    url: '/Cart/RemoveFromCart',
+                    method: 'POST',
+                    data: { productId: productId },
+                    success: function () {
+                        updateCartSummary();
+                    },
+                    error: function () {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'There was an error removing the item from the cart.',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                });
+            };
+
+            // Update Cart Summary
+            function updateCartSummary() {
+                $.ajax({
+                    url: '/Cart/CartSummary',
+                    method: 'GET',
+                    success: function (data) {
+                        $('.header-ctn .qty').text(data.Count);
+                        $('.cart-summary .item-count').text(data.Count);
+
+                        var cartList = $('.cart-list');
+                        cartList.empty();
+
+                        data.Items.forEach(function (item) {
+                            var cartItemHtml = `
+                                        <div class="product-widget">
+                                            <div class="product-img">
+                                                <img src="${item.ImageUrl}" alt="">
+                                            </div>
+                                            <div class="product-body">
+                                                <h3 class="product-name"><a href="#">${item.Name}</a></h3>
+                                                <h4 class="product-price"><span class="qty">${item.Quantity}x</span>$${item.Price}</h4>
+                                            </div>
+                                            <button class="delete" onclick="removeFromCart(${item.ProductId})"><i class="fa fa-close"></i></button>
+                                        </div>`;
+                            cartList.append(cartItemHtml);
+                        });
+
+                        var subtotal = data.Items.reduce(function (total, item) {
+                            return total + (item.Quantity * item.Price);
+                        }, 0);
+
+                        $('.cart-summary .subtotal').text(subtotal.toFixed(2));
+                    }
+                });
+            }
+
+            // Update Quantity in Cart
+            window.updateQuantity = function (productId, change) {
+                $.ajax({
+                    url: '/Cart/UpdateQuantity',
+                    method: 'POST',
+                    data: { productId: productId, quantity: change },
+                    success: function (response) {
+                        if (response.success) {
+                            location.reload();
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: response.message,
+                                confirmButtonText: 'OK'
+                            });
+                        }
+                    },
+                    error: function () {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'There was an error updating the cart.',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                });
+            };
+
+            // Clear Cart function
+            window.clearCart = function () {
+                $.ajax({
+                    url: '/Cart/ClearCart',
+                    method: 'POST',
+                    success: function (response) {
+                        if (response.success) {
+                            location.reload();
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'There was an error clearing the cart.',
+                                confirmButtonText: 'OK'
+                            });
+                        }
+                    },
+                    error: function () {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'There was an error clearing the cart.',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                });
+            };
+        });
+
+
+         function uploadImage() {
+     var formData = new FormData();
+     var fileInput = document.getElementById('Photo');
+     var file = fileInput.files[0];
+     formData.append('Photo', file);
+
+     var xhr = new XMLHttpRequest();
+     xhr.open('POST', '@Url.Action("UploadProfilePicture", "Account")', true);
+
+     xhr.onload = function () {
+         if (xhr.status === 200) {
+             // Update the profile picture on success
+             var imageUrl = JSON.parse(xhr.responseText).photoUrl;
+             document.getElementById('profilePic').src = imageUrl;
+         } else {
+             alert('An error occurred while uploading the image.');
+         }
+     };
+
+     xhr.send(formData);
+ }
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

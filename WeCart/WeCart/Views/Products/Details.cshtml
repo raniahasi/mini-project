@@ -1,0 +1,152 @@
+﻿@model WeCart.Models.User
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Profile</title>
+    <link type="text/css" rel="stylesheet" href="~/css2/bootstrap.min.css" />
+    <style>
+        .profile-container {
+            background-color: #f8f9fa;
+            max-width: 900px;
+            margin-top: 50px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+            .profile-container .text-center img {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .profile-container .btn-primary {
+                background-color: #D10024;
+                border-color: #D10024;
+                font-weight: bold;
+            }
+
+                .profile-container .btn-primary:hover {
+                    background-color: #A7001A;
+                    border-color: #A7001A;
+                }
+
+            .profile-container .card-header {
+                background-color: transparent;
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #333;
+                padding-bottom: 10px;
+                text-align: center;
+            }
+
+            .profile-container .form-control {
+                border-radius: 5px;
+                border: 1px solid #ced4da;
+            }
+
+            .profile-container .form-group label {
+                font-weight: bold;
+                color: #333;
+            }
+
+            .profile-container .upload-btn-wrapper {
+                position: relative;
+                overflow: hidden;
+                display: inline-block;
+                margin-top: 10px;
+            }
+
+                .profile-container .upload-btn-wrapper .btn {
+                    border: 2px solid #D10024;
+                    color: #D10024;
+                    background-color: white;
+                    padding: 8px 20px;
+                    border-radius: 8px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+
+                .profile-container .upload-btn-wrapper input[type=file] {
+                    font-size: 100px;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    opacity: 0;
+                    cursor: pointer;
+                }
+
+                .profile-container .upload-btn-wrapper .btn:hover {
+                    background-color: #f0f0f0;
+                }
+
+            .profile-container small {
+                display: block;
+                text-align: center;
+                color: #888;
+                margin-top: 5px;
+            }
+
+            .profile-container .btn-primary {
+                display: block;
+                width: 100%;
+                margin-top: 20px;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-container">
+            <h2 class="card-header">Account Details</h2>
+            <form id="profileForm" action="@Url.Action("UpdateProfile", "Account")" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <img src="@Model.PhotoUrl" alt="Profile Picture" id="profilePic">
+                            <div class="upload-btn-wrapper">
+                                <button class="btn">Upload new image</button>
+                                <input type="file" name="Photo" id="Photo">
+                            </div>
+                            <small class="form-text text-muted">JPG or PNG no larger than 5 MB</small>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label for="FirstName">First name</label>
+                            <input type="text" class="form-control" id="FirstName" name="FirstName" value="@Model.FirstName" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="LastName">Last name</label>
+                            <input type="text" class="form-control" id="LastName" name="LastName" value="@Model.LastName" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="Email">Email address</label>
+                            <input type="email" class="form-control" id="Email" name="Email" value="@Model.Email" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="Password">New Password</label>
+                            <input type="password" class="form-control" id="Password" name="Password" placeholder="Enter new password">
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Save changes</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('profileForm').addEventListener('submit', function () {
+            setTimeout(function () {
+                window.location.reload();
+            }, 500); // Wait for the form to be submitted before reloading the page
+        });
+    </script>
+</body>
+</html>

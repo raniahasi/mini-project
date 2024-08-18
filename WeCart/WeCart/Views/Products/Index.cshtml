@@ -1,0 +1,108 @@
+﻿@model IEnumerable<WeCart.Models.Product>
+<style>
+    .checkbox-filter label {
+        color: black;
+        font-weight: bold;
+    }
+</style>
+<!-- BREADCRUMB -->
+<div id="breadcrumb" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb-tree">
+                    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                    <li><a href="#">All Categories</a></li>
+                    @if (ViewBag.CategoryName != null)
+                    {
+                        <li class="active">@ViewBag.CategoryName</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /BREADCRUMB -->
+<!-- SECTION -->
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <!-- ASIDE -->
+            <div id="aside" class="col-md-3">
+                <div class="aside">
+                    <h3 class="aside-title">Categories</h3>
+                    <div class="checkbox-filter">
+                        @foreach (var category in ViewBag.Categories as IEnumerable<WeCart.Models.Category>)
+                        {
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="category-@category.CategoryId" onclick="window.location.href='@Url.Action("Index", "Products", new { categoryId = category.CategoryId })'">
+                                <label for="category-@category.CategoryId">
+                                    <span></span>
+                                    @category.Name
+                                    <small>(@category.Products.Count())</small>
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <!-- /ASIDE -->
+            <!-- STORE -->
+            <div id="store" class="col-md-9">
+                <div class="row">
+                    @foreach (var product in Model)
+                    {
+                        <div class="col-md-4 col-xs-6">
+                            <div class="product">
+                                <div class="product-img">
+                                    <img src="@Url.Content(product.ImageUrl)" alt="@product.Name">
+                                </div>
+                                <div class="product-body">
+                                    <p class="product-category">
+                                        @(product.Category != null ? product.Category.Name : "No Category")
+                                    </p>
+                                    <h3 class="product-name">
+                                        <a href="@Url.Action("Details", "Products", new { id = product.ProductId })">@product.Name</a>
+                                    </h3>
+                                    <h4 class="product-price">
+                                        $@product.Price
+                                        @if (product.OldPrice.HasValue)
+                                        {
+                                            <del class="product-old-price">$@product.OldPrice</del>
+                                        }
+                                    </h4>
+                                    <div class="product-rating">
+                                        @for (var i = 0; i < 5; i++)
+                                        {
+                                            if (i < product.Rating)
+                                            {
+                                                <i class="fa fa-star"></i>
+                                            }
+                                            else
+                                            {
+                                                <i class="fa fa-star-o"></i>
+                                            }
+                                        }
+                                    </div>
+                                    <div class="product-btns">
+                                        <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                        <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                        <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                    </div>
+                                </div>
+                                <div class="add-to-cart">
+                                    <button onclick="addToCart(@product.ProductId)" class="add-to-cart-btn">
+                                        <i class="fa fa-shopping-cart"></i> add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <!-- /STORE -->
+        </div>
+    </div>
+</div>
+<!-- /SECTION -->
+

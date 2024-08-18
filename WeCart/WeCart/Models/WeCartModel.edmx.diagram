@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f2b5136782d84c12a7e1d6f69da75554" Name="Diagram1">
+        <EntityTypeShape EntityType="WeCartDBModel.Cart" Width="1.5" PointX="5.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeCartDBModel.CartItem" Width="1.5" PointX="8" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeCartDBModel.Category" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeCartDBModel.ContactU" Width="1.5" PointX="7.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeCartDBModel.OrderDetail" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeCartDBModel.OrderItem" Width="1.5" PointX="5.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeCartDBModel.Order" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeCartDBModel.Product" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeCartDBModel.sysdiagram" Width="1.5" PointX="7.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeCartDBModel.User" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeCartDBModel.Wishlist" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="WeCartDBModel.FK__CartItems__CartI__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="WeCartDBModel.FK_Products_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="WeCartDBModel.FK__OrderDeta__Order__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="WeCartDBModel.FK__OrderDeta__Produ__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="WeCartDBModel.FK__Orders__UserId__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="WeCartDBModel.FK__Wishlist__Produc__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="WeCartDBModel.FK__Wishlist__UserId__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="WeCartDBModel.FK_CartItems_Products" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

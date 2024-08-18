@@ -1,0 +1,82 @@
+﻿@model WeCart.Models.User
+
+<style>
+    /* Container for the form */
+    #registerForm {
+        background-color: #222; /* Dark background */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+        margin: 0 auto; /* Center the form horizontally */
+        margin-top: 50px; /* Add some space at the top */
+        width: 80%; /* Set a fixed width */
+        max-width: 600px; /* Ensure it doesn't get too large */
+    }
+
+        #registerForm .form-group input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            color: #fff;
+            background-color: #eee;
+        }
+
+        #registerForm .form-group label {
+            font-weight: bold;
+            color: #fff; /* White label color */
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        #registerForm .form-group input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        #registerForm .form-group .form-check-label {
+            color: #fff; /* White color for the checkbox label */
+            font-size: 12px;
+        }
+
+        #registerForm .form-actions button {
+            background-color: #D10024; /* Red background */
+            color: #fff; /* White text */
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 0 auto; /* Center the button */
+        }
+
+            #registerForm .form-actions button:hover {
+                background-color: #b8001e; /* Slightly darker red on hover */
+            }
+</style>
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "registerForm" }))
+{
+    <div class="form-group">
+        <h3 style="color: #eee; text-align: center;">Sign Up</h3>
+        <input type="text" name="FirstName" class="form-style" placeholder="Your First Name" autocomplete="off">
+        <i class="input-icon uil uil-user"></i>
+    </div>
+    <div class="form-group mt-2">
+        <input type="text" name="LastName" class="form-style" placeholder="Your Last Name" autocomplete="off">
+        <i class="input-icon uil uil-user"></i>
+    </div>
+    <div class="form-group mt-2">
+        <input type="email" name="Email" class="form-style" placeholder="Your Email" autocomplete="off">
+        <i class="input-icon uil uil-at"></i>
+    </div>
+    <div class="form-group mt-2">
+        <input type="password" name="Password" class="form-style" placeholder="Your Password" autocomplete="off">
+        <i class="input-icon uil uil-lock-alt"></i>
+    </div>
+    <div class="form-actions">
+        <input type="submit" value="Sign Up" class="btn mt-4" />
+    </div>
+}

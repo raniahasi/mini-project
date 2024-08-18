@@ -1,0 +1,34 @@
+﻿@model IEnumerable<WeCart.Models.Category>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";  // Path to your layout page
+}
+
+<style>
+    /* Your existing styles here */
+</style>
+
+<div class="main-content">
+    <!-- Dynamically generated category content -->
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 col-sm-6 mb-4">
+                <a href="@Url.Action("Index", "Products", new { categoryId = item.CategoryId })" class="category-item">
+                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    {
+                        <img src="@Url.Content(item.ImageUrl)" alt="@item.Name" class="img-fluid rounded" />
+                    }
+                    <p>@Html.DisplayFor(modelItem => item.Name)</p>
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Additional sections from the provided content -->
+<div class="section">
+    <div class="container">
+        <!-- Products and widgets go here -->
+    </div>
+</div>

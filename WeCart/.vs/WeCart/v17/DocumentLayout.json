@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Orange\\Desktop\\projects\\WeCart\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2F6ECBF9-8C84-4803-AF90-F4F91662B497}|WeCart\\WeCart.csproj|c:\\users\\orange\\desktop\\projects\\wecart\\wecart\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2F6ECBF9-8C84-4803-AF90-F4F91662B497}|WeCart\\WeCart.csproj|solutionrelative:wecart\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F6ECBF9-8C84-4803-AF90-F4F91662B497}|WeCart\\WeCart.csproj|C:\\Users\\Orange\\Desktop\\projects\\WeCart\\wecart\\views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2F6ECBF9-8C84-4803-AF90-F4F91662B497}|WeCart\\WeCart.csproj|solutionrelative:wecart\\views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F6ECBF9-8C84-4803-AF90-F4F91662B497}|WeCart\\WeCart.csproj|C:\\Users\\Orange\\Desktop\\projects\\WeCart\\wecart\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2F6ECBF9-8C84-4803-AF90-F4F91662B497}|WeCart\\WeCart.csproj|solutionrelative:wecart\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F6ECBF9-8C84-4803-AF90-F4F91662B497}|WeCart\\WeCart.csproj|c:\\users\\orange\\desktop\\projects\\wecart\\wecart\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F6ECBF9-8C84-4803-AF90-F4F91662B497}|WeCart\\WeCart.csproj|solutionrelative:wecart\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F6ECBF9-8C84-4803-AF90-F4F91662B497}|WeCart\\WeCart.csproj|C:\\Users\\Orange\\Desktop\\projects\\WeCart\\wecart\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2F6ECBF9-8C84-4803-AF90-F4F91662B497}|WeCart\\WeCart.csproj|solutionrelative:wecart\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\projects\\WeCart\\WeCart\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "WeCart\\Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\projects\\WeCart\\WeCart\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "WeCart\\Views\\Account\\Register.cshtml",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAD8AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-18T13:22:32.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\projects\\WeCart\\WeCart\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "WeCart\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\projects\\WeCart\\WeCart\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "WeCart\\Views\\Account\\Login.cshtml",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAgwCkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-18T12:33:32.845Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\projects\\WeCart\\WeCart\\Views\\Account\\Profile.cshtml",
+              "RelativeDocumentMoniker": "WeCart\\Views\\Account\\Profile.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\projects\\WeCart\\WeCart\\Views\\Account\\Profile.cshtml",
+              "RelativeToolTip": "WeCart\\Views\\Account\\Profile.cshtml",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAAF0AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-18T10:50:42.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\projects\\WeCart\\WeCart\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "WeCart\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\projects\\WeCart\\WeCart\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "WeCart\\Controllers\\AccountController.cs",
+              "ViewState": "AQIAAGkAAAAAAAAAAADwv4wAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-18T10:40:32.37Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\projects\\WeCart\\WeCart\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WeCart\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\projects\\WeCart\\WeCart\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WeCart\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAADACAAAAAAAAAAAYwE0CAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-18T10:05:50.07Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
